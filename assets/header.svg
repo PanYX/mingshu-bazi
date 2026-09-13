@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="bazi-chart-engine">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#181310"/>
+      <stop offset="55%" stop-color="#221a13"/>
+      <stop offset="100%" stop-color="#2b2115"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.2" r="0.6">
+      <stop offset="0%" stop-color="#c9a227" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#c9a227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="1200" height="300" rx="24" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="300" rx="24" fill="url(#glow)"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="298.5" rx="23.25" fill="none" stroke="#3a2f22" stroke-width="1.5"/>
+  <rect x="72" y="98" width="64" height="5" rx="2.5" fill="#c9a227"/>
+  <text x="72" y="168" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="54" font-weight="600" letter-spacing="1.5" fill="#f6f1e7">bazi-chart-engine</text>
+  <text x="72" y="212" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="24" fill="#cfc3b0">面向 AI Agent 的八字排盘 CLI</text>
+  <text x="72" y="250" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="19" fill="#9a8e7c">四柱 · 格局 · 旺衰 · 用神喜忌 · 调候 · 大运</text>
+  <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#e8dcc6" text-anchor="middle">
+    <rect x="664" y="112" width="104" height="56" rx="14" fill="#241d16" stroke="#3b3123" stroke-width="1.5"/>
+    <text x="716" y="148">格局</text>
+    <rect x="784" y="112" width="104" height="56" rx="14" fill="#241d16" stroke="#3b3123" stroke-width="1.5"/>
+    <text x="836" y="148">旺衰</text>
+    <rect x="904" y="112" width="104" height="56" rx="14" fill="#241d16" stroke="#3b3123" stroke-width="1.5"/>
+    <text x="956" y="148">用神</text>
+    <rect x="1024" y="112" width="104" height="56" rx="14" fill="#241d16" stroke="#3b3123" stroke-width="1.5"/>
+    <text x="1076" y="148">调候</text>
+    <rect x="664" y="188" width="104" height="56" rx="14" fill="#241d16" stroke="#3b3123" stroke-width="1.5"/>
+    <text x="716" y="224">财库</text>
+    <rect x="784" y="188" width="104" height="56" rx="14" fill="#241d16" stroke="#3b3123" stroke-width="1.5"/>
+    <text x="836" y="224">贵人</text>
+    <rect x="904" y="188" width="104" height="56" rx="14" fill="#241d16" stroke="#3b3123" stroke-width="1.5"/>
+    <text x="956" y="224">神煞</text>
+    <rect x="1024" y="188" width="104" height="56" rx="14" fill="#241d16" stroke="#3b3123" stroke-width="1.5"/>
+    <text x="1076" y="224">大运</text>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+{
+  "name": "mingshu-cli",
+  "version": "0.1.0",
+  "description": "面向 AI Agent 的八字排盘 CLI：除四柱外，还返回格局、旺衰依据、用神喜忌、调候、财库、神煞与事业宫。",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "mingshu": "bin/mingshu.mjs"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "skills/",
+    "examples/",
+    "docs/",
+    "assets/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "homepage": "https://mingshu.help/tools/ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PanYX/bazi-chart-engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PanYX/bazi-chart-engine/issues"
+  },
+  "keywords": [
+    "bazi",
+    "four-pillars",
+    "八字",
+    "四柱",
+    "agent",
+    "cli",
+    "skill",
+    "agentskill"
+  ]
+}

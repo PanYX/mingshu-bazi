@@ -1,0 +1,9 @@
+{
+  "birthDate": "1992-01-06",
+  "birthTime": "21:10",
+  "birthCalendar": "solar",
+  "gender": "female",
+  "timeMode": "true_solar",
+  "placeId": "geonames:1796236",
+  "locale": "zh-CN"
+}
