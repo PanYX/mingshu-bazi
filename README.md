@@ -17,9 +17,9 @@
 </div>
 
 > [!IMPORTANT]
-> **线上可用。** 服务端已经上线：默认地址 `https://mingshu.help`，接口版本 `v1`，引擎 `bazi-v3-true-solar`；五种语言的接入页在 https://mingshu.help/tools/ai 。第一次使用，按下面「怎么用」里的说明操作即可。
-
-本仓库是**客户端与 Agent Skill**，来自 [个人命书](https://mingshu.help?utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine)。确定性的排盘引擎、解读服务、账号与付费报告运行在个人命书官网服务端，不在这个仓库里。
+> **线上可用。** 本仓库是 [个人命书](https://mingshu.help?utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) 的客户端与 Agent Skill。服务端已经上线：默认地址 `https://mingshu.help`，接口版本 `v1`，引擎 `bazi-v3-true-solar`；五种语言的接入页在 https://mingshu.help/tools/ai 。
+>
+> 第一次使用，按下面「怎么用」里的说明操作即可。
 
 ---
 
@@ -187,7 +187,7 @@
 
 `mingshu-bazi` is a dependency-free CLI and Agent Skill for BaZi (Four Pillars) charts. A single call returns the chart facts together with the engine's own determinations - pattern, Day Master strength with its evidence, Useful/Favorable/Unfavorable Elements, seasonal balance, circulation, wealth stars and vault, benefactors, career palace, Shensha, branch relations and risk profile - localized into Simplified Chinese, Taiwan Traditional, Hong Kong Traditional, English or Japanese.
 
-Mingshu (个人命书) is the website built on this engine: [mingshu.help](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) lets you enter birth details in a browser and get the same chart, plus topic reports, the full destiny book and life cards. This public repository contains the client and Agent Skill only; the deterministic engine, the hosted service and paid content live on the Mingshu site and are not part of this repository. The service is live: the client calls `https://mingshu.help` by default (API v1, engine `bazi-v3-true-solar`) and runs straight from git with `npx --yes github:PanYX/mingshu-bazi capabilities --json`. After installing globally, run `mingshu setup` to select Codex or Claude Code and install the bundled Skill. Use `--dir` for another host. Setup checks connectivity without sending birth data; existing modified Skills are preserved unless `--force` is supplied, which makes a backup first. Installation is directly from GitHub; no npm account is required. For assisted installation, ask your Agent to follow `docs/agent-install.md`. Licensed under [MIT](LICENSE).
+Mingshu (个人命书) is the website built on this engine: [mingshu.help](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) lets you enter birth details in a browser and get the same chart, plus topic reports, the full destiny book and life cards. The service is live: the client calls `https://mingshu.help` by default (API v1, engine `bazi-v3-true-solar`) and runs straight from git with `npx --yes github:PanYX/mingshu-bazi capabilities --json`. After installing globally, run `mingshu setup` to select Codex or Claude Code and install the bundled Skill. Use `--dir` for another host. Setup checks connectivity without sending birth data; existing modified Skills are preserved unless `--force` is supplied, which makes a backup first. Installation is directly from GitHub; no npm account is required. For assisted installation, ask your Agent to follow `docs/agent-install.md`. Licensed under [MIT](LICENSE).
 
 ---
 
