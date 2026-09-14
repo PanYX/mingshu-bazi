@@ -93,16 +93,6 @@
 
 ---
 
-## 关于个人命书
-
-[个人命书](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) 是这套排盘服务对应的在线网站，面向不使用命令行的用户。在浏览器里填写出生资料，就能得到基础命盘和解读。
-
-网站上运行的是与本仓库同一个确定性引擎。除了基础命盘，个人命书还提供专题报告、完整命书和人生卡片，支持简体中文、繁体中文（台湾）、繁体中文（香港）、英文和日文。本仓库开源的是客户端与 Agent Skill，官网服务、排盘引擎与付费内容不在仓库范围内。
-
-如果不想在电脑上安装任何东西，直接打开 [mingshu.help](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) 就能使用同样的排盘。
-
----
-
 ## 返回内容
 
 | 字段 | 内容 |
@@ -173,6 +163,16 @@
 | [docs/demos.md](docs/demos.md) | 三个演示脚本 |
 | [docs/release.md](docs/release.md) | 独立发布与同步说明 |
 | [skills/mingshu-bazi/SKILL.md](skills/mingshu-bazi/SKILL.md) | Agent Skill 全文 |
+
+---
+
+## 关于个人命书
+
+[个人命书](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) 是这套排盘服务对应的在线网站，面向不使用命令行的用户。在浏览器里填写出生资料，就能得到基础命盘和解读。
+
+网站上运行的是与本仓库同一个确定性引擎。除了基础命盘，个人命书还提供专题报告、完整命书和人生卡片，支持简体中文、繁体中文（台湾）、繁体中文（香港）、英文和日文。本仓库开源的是客户端与 Agent Skill，官网服务、排盘引擎与付费内容不在仓库范围内。
+
+如果不想在电脑上安装任何东西，直接打开 [mingshu.help](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) 就能使用同样的排盘。
 
 ---
 
