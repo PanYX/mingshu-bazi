@@ -40,6 +40,23 @@
 
 ---
 
+## 怎么用
+
+打开 Codex、Claude Code 或其他支持安装工具的 AI 助手，把下面这段话发给它：
+
+```text
+请帮我安装个人命书：https://github.com/PanYX/mingshu-bazi
+请阅读项目中的 docs/agent-install.md，完成安装和连接检查。
+```
+
+安装完成后，对它说：
+
+> 使用个人命书，帮我排八字。
+
+按助手的提问提供出生日期、时间、历法和出生地，它就会排盘并解释结果。
+
+---
+
 ## 真实输出
 
 `mingshu chart --input birth.json`，示例资料（非真实用户）：
@@ -73,23 +90,6 @@
   "unfavorable": ["火"]
 }
 ```
-
----
-
-## 怎么用
-
-打开 Codex、Claude Code 或其他支持安装工具的 AI 助手，把下面这段话发给它：
-
-```text
-请帮我安装个人命书：https://github.com/PanYX/mingshu-bazi
-请阅读项目中的 docs/agent-install.md，完成安装和连接检查。
-```
-
-安装完成后，对它说：
-
-> 使用个人命书，帮我排八字。
-
-按助手的提问提供出生日期、时间、历法和出生地，它就会排盘并解释结果。
 
 ---
 
