@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/header.svg" alt="bazi-chart-engine：面向 AI Agent 的八字排盘 CLI" width="880" />
+<img src="assets/header.svg" alt="mingshu-bazi：面向 AI Agent 的八字排盘 CLI" width="880" />
 
 **面向 AI Agent 的八字排盘 CLI**
 
@@ -29,7 +29,7 @@
 
 这里把确定性判断交给引擎，把解释留给用户自己的 AI：
 
-| 场景 | bazi-chart-engine 提供 |
+| 场景 | mingshu-bazi 提供 |
 |---|---|
 | 排盘 | `chart` 一次返回四柱、藏干十神、日主与五行权重 |
 | 判断 | 格局、旺衰（含得令／得地／得势逐条依据）、用神喜忌、调候评级、流通 |
@@ -84,13 +84,13 @@
 先试一次，不安装：
 
 ```bash
-npx --yes github:PanYX/bazi-chart-engine capabilities --json
+npx --yes github:PanYX/mingshu-bazi capabilities --json
 ```
 
 装到本机（首次会从 GitHub 下载，约一分钟；之后只需要几秒）：
 
 ```bash
-npm install -g github:PanYX/bazi-chart-engine
+npm install -g github:PanYX/mingshu-bazi
 
 mingshu doctor --json            # 确认线上可用
 mingshu capabilities --json      # 能力与输入契约
@@ -227,15 +227,15 @@ Agent 会按 Skill 的规定补齐信息、调用引擎、依据返回事实解�
 
 ## English summary
 
-`bazi-chart-engine` is a dependency-free CLI and Agent Skill for BaZi (Four Pillars) charts. A single call returns the chart facts together with the engine's own determinations - pattern, Day Master strength with its evidence, Useful/Favorable/Unfavorable Elements, seasonal balance, circulation, wealth stars and vault, benefactors, career palace, Shensha, branch relations and risk profile - localized into Simplified Chinese, Taiwan Traditional, Hong Kong Traditional, English or Japanese.
+`mingshu-bazi` is a dependency-free CLI and Agent Skill for BaZi (Four Pillars) charts. A single call returns the chart facts together with the engine's own determinations - pattern, Day Master strength with its evidence, Useful/Favorable/Unfavorable Elements, seasonal balance, circulation, wealth stars and vault, benefactors, career palace, Shensha, branch relations and risk profile - localized into Simplified Chinese, Taiwan Traditional, Hong Kong Traditional, English or Japanese.
 
-This public repository contains the client only; the deterministic engine and the hosted service live on [mingshu.help](https://mingshu.help). The service is live: the client calls `https://mingshu.help` by default (API v1, engine `bazi-v3-true-solar`) and runs straight from git with `npx --yes github:PanYX/bazi-chart-engine capabilities --json`. The package is not published to npm yet. Licensed under [MIT](LICENSE).
+This public repository contains the client only; the deterministic engine and the hosted service live on [mingshu.help](https://mingshu.help). The service is live: the client calls `https://mingshu.help` by default (API v1, engine `bazi-v3-true-solar`) and runs straight from git with `npx --yes github:PanYX/mingshu-bazi capabilities --json`. The package is not published to npm yet. Licensed under [MIT](LICENSE).
 
 ---
 
 <div align="center">
 
-[官网排盘](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) · [接入指南](https://mingshu.help/tools/ai?utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) · [Issues](https://github.com/PanYX/bazi-chart-engine/issues)
+[官网排盘](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) · [接入指南](https://mingshu.help/tools/ai?utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) · [Issues](https://github.com/PanYX/mingshu-bazi/issues)
 
 Made by [PanYX](https://github.com/PanYX)
 

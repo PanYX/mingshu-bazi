@@ -26,10 +26,10 @@
   "homepage": "https://mingshu.help/tools/ai",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PanYX/bazi-chart-engine.git"
+    "url": "git+https://github.com/PanYX/mingshu-bazi.git"
   },
   "bugs": {
-    "url": "https://github.com/PanYX/bazi-chart-engine/issues"
+    "url": "https://github.com/PanYX/mingshu-bazi/issues"
   },
   "keywords": [
     "bazi",

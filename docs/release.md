@@ -1,6 +1,6 @@
 # 独立发布与同步
 
-公开仓库：https://github.com/PanYX/bazi-chart-engine ，许可证 MIT。
+公开仓库：https://github.com/PanYX/mingshu-bazi ，许可证 MIT。
 
 ## 同步方式
 
@@ -9,12 +9,12 @@
 公开仓库的历史是单独维护的：每次同步只追加一个面向公众的提交，不带私有仓库的历史与提交信息。改完之后在仓库根目录执行（bash / Git Bash）：
 
 ```
-git fetch https://github.com/PanYX/bazi-chart-engine.git main:refs/remotes/public/main
+git fetch https://github.com/PanYX/mingshu-bazi.git main:refs/remotes/public/main
 git subtree split --prefix packages/mingshu-cli -b cli-split
 parent=$(git rev-parse refs/remotes/public/main)
 tree=$(git rev-parse cli-split^{tree})
 commit=$(git commit-tree "$tree" -p "$parent" -m "docs: describe the change for public readers")
-git push https://github.com/PanYX/bazi-chart-engine.git "$commit:main"
+git push https://github.com/PanYX/mingshu-bazi.git "$commit:main"
 git branch -D cli-split
 ```
 
