@@ -43,7 +43,7 @@
 
 ## 怎么用
 
-打开 Codex、Claude Code 或其他支持安装工具的 AI 助手，把下面这段话发给它：
+打开 Codex、Claude Code、workbuddy、manus、deepseek 或其他 agent 工具，把下面这段话发给它：
 
 ```text
 请帮我安装个人命书：https://github.com/PanYX/mingshu-bazi
