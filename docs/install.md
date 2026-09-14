@@ -1,6 +1,6 @@
 # 安装与首次使用
 
-普通用户可以直接把 [README「快速开始」](../README.md#快速开始)里的话发给 AI 助手。下面是手动安装与排错步骤；Agent 应先阅读[专用安装说明](agent-install.md)。
+普通用户可以直接把 [README「怎么用」](../README.md#怎么用)里的话发给 AI 助手。下面是手动安装与排错步骤；Agent 应先阅读[专用安装说明](agent-install.md)。
 
 ## 手动安装
 

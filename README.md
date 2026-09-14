@@ -8,16 +8,16 @@
 
 任何能执行本地命令的 AI Agent，都能按 JSON discovery 契约稳定调用。
 
-[![Node](https://img.shields.io/badge/Node-20%2B-339933?logo=node.js&logoColor=white)](#快速开始)
+[![Node](https://img.shields.io/badge/Node-20%2B-339933?logo=node.js&logoColor=white)](#怎么用)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Agent Ready](https://img.shields.io/badge/Agent-Ready-00b0aa)](#在-ai-助手里使用)
+[![Agent Ready](https://img.shields.io/badge/Agent-Ready-00b0aa)](#怎么用)
 
-[快速开始](#快速开始) · [真实输出](#真实输出) · [返回内容](#返回内容) · [官网排盘](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) · [接入指南](https://mingshu.help/tools/ai?utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) · [文档](#文档)
+[怎么用](#怎么用) · [真实输出](#真实输出) · [返回内容](#返回内容) · [官网排盘](https://mingshu.help/workspace?start=form&utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) · [接入指南](https://mingshu.help/tools/ai?utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) · [文档](#文档)
 
 </div>
 
 > [!IMPORTANT]
-> **线上可用。** 服务端已经上线：默认地址 `https://mingshu.help`，接口版本 `v1`，引擎 `bazi-v3-true-solar`；五种语言的接入页在 https://mingshu.help/tools/ai 。直接从 GitHub 安装，不用注册额外账号。第一次使用，复制下面「快速开始」里的话发给你的 AI 助手即可。
+> **线上可用。** 服务端已经上线：默认地址 `https://mingshu.help`，接口版本 `v1`，引擎 `bazi-v3-true-solar`；五种语言的接入页在 https://mingshu.help/tools/ai 。第一次使用，按下面「怎么用」里的说明操作即可。
 
 本仓库是**客户端与 Agent Skill**。确定性的排盘引擎、解读服务、账号与付费报告运行在官网服务端，不在这个仓库里。
 
@@ -77,31 +77,20 @@
 
 ---
 
-## 快速开始
+## 怎么用
 
-**打开 Codex、Claude Code，或其他能帮你安装工具的 AI 助手，把下面这段话复制到聊天输入框发送。** 不用自己打开终端，也不用注册 npm 账号。
+打开 Codex、Claude Code 或其他支持安装工具的 AI 助手，把下面这段话发给它：
 
 ```text
-请帮我安装个人命书，让我能在当前 AI 助手里排八字。
-项目地址：https://github.com/PanYX/mingshu-bazi
-请先阅读项目中的 docs/agent-install.md，按当前助手完成安装和连接检查。安装好后，告诉我怎么开始使用。
+请帮我安装个人命书：https://github.com/PanYX/mingshu-bazi
+请阅读项目中的 docs/agent-install.md，完成安装和连接检查。
 ```
 
-助手会检查电脑环境、安装工具，并完成接入。如果需要你点击授权或补装软件，跟着它的提示做就好。
-
-## 在 AI 助手里使用
-
-安装完成后，直接对助手说：
+安装完成后，对它说：
 
 > 使用个人命书，帮我排八字。
 
-它会向你确认出生日期、出生时间、用的是公历还是农历，以及出生地，再排盘并解释结果。你不用自己准备文件或填写代码。
-
-如果助手提示需要重新加载，按提示新开一个对话或重启助手，再发一次上面这句话。
-
-**如果你用的聊天工具不能安装或运行本地工具，直接[在官网排盘](https://mingshu.help/workspace?start=form)就可以。**
-
-想自己动手安装，或需要升级、排错，可以查看[详细安装说明](docs/install.md)。
+按助手的提问提供出生日期、时间、历法和出生地，它就会排盘并解释结果。
 
 ---
 
@@ -175,19 +164,6 @@
 | [docs/demos.md](docs/demos.md) | 三个演示脚本 |
 | [docs/release.md](docs/release.md) | 独立发布与同步说明 |
 | [skills/mingshu-bazi/SKILL.md](skills/mingshu-bazi/SKILL.md) | Agent Skill 全文 |
-
----
-
-## 状态与计划
-
-- [x] 命令行客户端与配套 Skill
-- [x] 五种语言、判断依据、隐私边界与调用限流
-- [x] 服务端上线：`https://mingshu.help/api/v1/chart`，接口版本 v1，引擎 `bazi-v3-true-solar`
-- [x] 五语言接入页上线：https://mingshu.help/tools/ai
-- [x] 支持 `npx` 与 `npm install -g github:...`，不需要先发布到 npm
-- [x] 引导安装 Skill，支持 Codex、Claude Code 和自定义目录
-- [ ] 打开公开仓库的 CI（需要带 workflow 权限的凭据，步骤见 docs/release.md）
-- [ ] 补充其它 Agent 宿主的实测安装说明
 
 ---
 
