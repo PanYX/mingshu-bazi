@@ -1,6 +1,6 @@
 # API v1
 
-Base origin: `https://mingshu.help`（主站部署后可用）。无需 Cookie 或 API Key；本接口仅公开确定性排盘，不改变任何现有付费/账号接口的权限。
+Base origin: `https://mingshu.help`（已上线，接口版本 v1，引擎 `bazi-v3-true-solar`）。无需 Cookie 或 API Key；本接口仅公开确定性排盘，不改变任何现有付费/账号接口的权限。
 
 - GET `/api/v1/capabilities`：能力、参数与限制。
 - GET `/api/locations?q=Shanghai`，请求头 `X-Locale: en`：现有出生地搜索；用户确认城市级结果后使用 placeId。

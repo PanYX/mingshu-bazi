@@ -4,19 +4,21 @@
 
 ## 同步方式
 
-私有仓库 `PanYX/private-destiny` 是唯一编辑入口，`packages/mingshu-cli` 是这份客户端的源头。改完之后从仓库根目录推送子树：
+私有仓库 `PanYX/private-destiny` 是唯一编辑入口，`packages/mingshu-cli` 是这份客户端的源头。
+
+公开仓库的历史是单独维护的：每次同步只追加一个面向公众的提交，不带私有仓库的历史与提交信息。改完之后在仓库根目录执行（bash / Git Bash）：
 
 ```
-git subtree push --prefix packages/mingshu-cli https://github.com/PanYX/bazi-chart-engine.git main
-```
-
-如果两份历史已经分叉（例如有人直接在公开仓库改了文件），改用：
-
-```
+git fetch https://github.com/PanYX/bazi-chart-engine.git main:refs/remotes/public/main
 git subtree split --prefix packages/mingshu-cli -b cli-split
-git push https://github.com/PanYX/bazi-chart-engine.git cli-split:main
+parent=$(git rev-parse refs/remotes/public/main)
+tree=$(git rev-parse cli-split^{tree})
+commit=$(git commit-tree "$tree" -p "$parent" -m "docs: describe the change for public readers")
+git push https://github.com/PanYX/bazi-chart-engine.git "$commit:main"
 git branch -D cli-split
 ```
+
+提交信息写给公开读者，不要提私有仓库、接口路由或内部文档。
 
 不要在公开仓库直接改代码，否则两边会分叉。
 
@@ -24,7 +26,7 @@ git branch -D cli-split
 
 1. 只有本目录内容会公开：CLI、接口契约、Skill、示例与文档。不要复制主站源码、环境变量或数据库配置。
 2. 运行 `npm test` 与 `npm pack --dry-run`，确认包内文件清单。
-3. 主站部署 API v1 与接入页之后，实际运行 `doctor`、`locations`、`chart`，再更新 README 里的开发版状态。
+3. 主站 API v1 与接入页已经上线，公开冒烟测试已用示例资料跑通；主站每次重新部署后重跑一次 `doctor`、`locations`、`chart` 即可。
 4. 确认 npm 包名归属后再发布 npm，并补上安装命令。现阶段不提供未注册包的 npx 命令。
 
 ## 关于 CI

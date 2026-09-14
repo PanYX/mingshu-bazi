@@ -17,7 +17,7 @@
 </div>
 
 > [!IMPORTANT]
-> **开发预览版。** 客户端尚未发布到 npm，官网接口也需要先部署才能调用。下面的步骤是从本仓库源码安装；`doctor` 与 `chart` 需要 API 已经可用。
+> **线上可用。** 服务端已经上线：默认地址 `https://mingshu.help`，接口版本 `v1`，引擎 `bazi-v3-true-solar`；五种语言的接入页在 https://mingshu.help/tools/ai 。客户端还没发布到 npm，用下面的 `npx` 或从 GitHub 安装即可。
 
 本仓库是**客户端与 Agent Skill**。确定性的排盘引擎、解读服务、账号与付费报告运行在官网服务端，不在这个仓库里。
 
@@ -79,14 +79,21 @@
 
 ## 快速开始
 
-需要 Node.js 20 或更高版本，没有第三方运行依赖。
+需要 Node.js 20 或更高版本，没有第三方运行依赖。默认直接调用线上服务，不需要密钥或额外配置。
+
+先试一次，不安装：
 
 ```bash
-git clone https://github.com/PanYX/bazi-chart-engine.git
-cd bazi-chart-engine
-npm install -g .
+npx --yes github:PanYX/bazi-chart-engine capabilities --json
+```
 
-mingshu capabilities --json     # 能力与输入契约
+装到本机（首次会从 GitHub 下载，约一分钟；之后只需要几秒）：
+
+```bash
+npm install -g github:PanYX/bazi-chart-engine
+
+mingshu doctor --json            # 确认线上可用
+mingshu capabilities --json      # 能力与输入契约
 mingshu example --json > birth.json
 mingshu validate --input birth.json --json
 mingshu locations --query "上海" --locale zh-CN --json
@@ -95,7 +102,15 @@ mingshu chart --input birth.json --json
 
 > Windows PowerShell 下 `>` 默认写出 UTF-16，请改用 `mingshu example --json | Out-File -Encoding utf8 birth.json`。
 
-`chart` 会把出生资料发送到所选的服务地址。默认是 `https://mingshu.help`；本地联调可以指向本机：
+`doctor` 现在返回：
+
+```json
+{"ok":true,"origin":"https://mingshu.help","node":"22.15.1","apiVersion":"1","note":"Discovery is reachable; chart runtime and place availability are checked on each chart request."}
+```
+
+需要读代码或改代码，克隆仓库后在目录里运行 `npm install -g .` 即可。
+
+`chart` 会把出生资料发送到所选的服务地址，默认就是 `https://mingshu.help`。本地联调可以指向本机：
 
 ```bash
 mingshu doctor --origin http://127.0.0.1:3000 --json
@@ -191,12 +206,14 @@ Agent 会按 Skill 的规定补齐信息、调用引擎、依据返回事实解�
 
 ---
 
-## 未发布与计划
+## 状态与计划
 
 - [x] 命令行客户端与配套 Skill
 - [x] 五种语言、判断依据、隐私边界与调用限流
-- [ ] 官网部署后开放线上接口（默认地址目前尚未生效）
-- [ ] 发布到 npm，提供一行安装
+- [x] 服务端上线：`https://mingshu.help/api/v1/chart`，接口版本 v1，引擎 `bazi-v3-true-solar`
+- [x] 五语言接入页上线：https://mingshu.help/tools/ai
+- [x] 支持 `npx` 与 `npm install -g github:...`，不需要先发布到 npm
+- [ ] 发布到 npm，提供 `npm install -g mingshu-cli`
 - [ ] 打开公开仓库的 CI（需要带 workflow 权限的凭据，步骤见 docs/release.md）
 - [ ] 补充其它 Agent 宿主的实测安装说明
 
@@ -212,7 +229,7 @@ Agent 会按 Skill 的规定补齐信息、调用引擎、依据返回事实解�
 
 `bazi-chart-engine` is a dependency-free CLI and Agent Skill for BaZi (Four Pillars) charts. A single call returns the chart facts together with the engine's own determinations - pattern, Day Master strength with its evidence, Useful/Favorable/Unfavorable Elements, seasonal balance, circulation, wealth stars and vault, benefactors, career palace, Shensha, branch relations and risk profile - localized into Simplified Chinese, Taiwan Traditional, Hong Kong Traditional, English or Japanese.
 
-This public repository contains the client only; the deterministic engine and the hosted service live on [mingshu.help](https://mingshu.help). Development preview: the package is not on npm yet and the hosted API is not live, so install from source and point `--origin` at a local deployment. Licensed under [MIT](LICENSE).
+This public repository contains the client only; the deterministic engine and the hosted service live on [mingshu.help](https://mingshu.help). The service is live: the client calls `https://mingshu.help` by default (API v1, engine `bazi-v3-true-solar`) and runs straight from git with `npx --yes github:PanYX/bazi-chart-engine capabilities --json`. The package is not published to npm yet. Licensed under [MIT](LICENSE).
 
 ---
 
