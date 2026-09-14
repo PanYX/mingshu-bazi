@@ -27,7 +27,7 @@ git branch -D cli-split
 1. 只有本目录内容会公开：CLI、接口契约、Skill、示例与文档。不要复制主站源码、环境变量或数据库配置。
 2. 运行 `npm test` 与 `npm pack --dry-run`，确认包内文件清单。
 3. 主站 API v1 与接入页已经上线，公开冒烟测试已用示例资料跑通；主站每次重新部署后重跑一次 `doctor`、`locations`、`chart` 即可。
-4. 确认 npm 包名归属后再发布 npm，并补上安装命令。现阶段不提供未注册包的 npx 命令。
+4. 当前采用 GitHub 直接分发，不发布 npm、不要求 npm 账号。同步后在隔离目录验证 `npm install -g github:PanYX/mingshu-bazi` 与 setup，再核对 README 中的新手安装入口。
 
 ## 关于 CI
 

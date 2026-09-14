@@ -17,7 +17,7 @@
 </div>
 
 > [!IMPORTANT]
-> **线上可用。** 服务端已经上线：默认地址 `https://mingshu.help`，接口版本 `v1`，引擎 `bazi-v3-true-solar`；五种语言的接入页在 https://mingshu.help/tools/ai 。客户端还没发布到 npm，用下面的 `npx` 或从 GitHub 安装即可。
+> **线上可用。** 服务端已经上线：默认地址 `https://mingshu.help`，接口版本 `v1`，引擎 `bazi-v3-true-solar`；五种语言的接入页在 https://mingshu.help/tools/ai 。直接从 GitHub 安装，不用注册额外账号。第一次使用，复制下面「快速开始」里的话发给你的 AI 助手即可。
 
 本仓库是**客户端与 Agent Skill**。确定性的排盘引擎、解读服务、账号与付费报告运行在官网服务端，不在这个仓库里。
 
@@ -79,61 +79,29 @@
 
 ## 快速开始
 
-需要 Node.js 20 或更高版本，没有第三方运行依赖。默认直接调用线上服务，不需要密钥或额外配置。
+**打开 Codex、Claude Code，或其他能帮你安装工具的 AI 助手，把下面这段话复制到聊天输入框发送。** 不用自己打开终端，也不用注册 npm 账号。
 
-先试一次，不安装：
-
-```bash
-npx --yes github:PanYX/mingshu-bazi capabilities --json
+```text
+请帮我安装个人命书，让我能在当前 AI 助手里排八字。
+项目地址：https://github.com/PanYX/mingshu-bazi
+请先阅读项目中的 docs/agent-install.md，按当前助手完成安装和连接检查。安装好后，告诉我怎么开始使用。
 ```
 
-装到本机（首次会从 GitHub 下载，约一分钟；之后只需要几秒）：
-
-```bash
-npm install -g github:PanYX/mingshu-bazi
-
-mingshu doctor --json            # 确认线上可用
-mingshu capabilities --json      # 能力与输入契约
-mingshu example --json > birth.json
-mingshu validate --input birth.json --json
-mingshu locations --query "上海" --locale zh-CN --json
-mingshu chart --input birth.json --json
-```
-
-> Windows PowerShell 下 `>` 默认写出 UTF-16，请改用 `mingshu example --json | Out-File -Encoding utf8 birth.json`。
-
-`doctor` 现在返回：
-
-```json
-{"ok":true,"origin":"https://mingshu.help","node":"22.15.1","apiVersion":"1","note":"Discovery is reachable; chart runtime and place availability are checked on each chart request."}
-```
-
-需要读代码或改代码，克隆仓库后在目录里运行 `npm install -g .` 即可。
-
-`chart` 会把出生资料发送到所选的服务地址，默认就是 `https://mingshu.help`。本地联调可以指向本机：
-
-```bash
-mingshu doctor --origin http://127.0.0.1:3000 --json
-mingshu chart --input birth.json --origin http://127.0.0.1:3000 --json
-```
-
-也可以用 `MINGSHU_API_ORIGIN` 固定地址。换成自定义地址，就意味着出生资料会发往那台服务器。
-
----
+助手会检查电脑环境、安装工具，并完成接入。如果需要你点击授权或补装软件，跟着它的提示做就好。
 
 ## 在 AI 助手里使用
 
-把 `skills/mingshu-bazi` 放进宿主支持的 Skill 目录，宿主需要能执行本地命令：
+安装完成后，直接对助手说：
 
-```bash
-mingshu skills    # 输出完整 Skill 说明
-```
+> 使用个人命书，帮我排八字。
 
-然后对 Agent 说：
+它会向你确认出生日期、出生时间、用的是公历还是农历，以及出生地，再排盘并解释结果。你不用自己准备文件或填写代码。
 
-> 使用个人命书，先确认我的出生资料，再排八字并解释四柱、格局和用神。
+如果助手提示需要重新加载，按提示新开一个对话或重启助手，再发一次上面这句话。
 
-Agent 会按 Skill 的规定补齐信息、调用引擎、依据返回事实解释，并在需要时给出官网入口。普通聊天窗口不一定支持执行命令，这种情况直接在官网排盘。
+**如果你用的聊天工具不能安装或运行本地工具，直接[在官网排盘](https://mingshu.help/workspace?start=form)就可以。**
+
+想自己动手安装，或需要升级、排错，可以查看[详细安装说明](docs/install.md)。
 
 ---
 
@@ -182,6 +150,8 @@ Agent 会按 Skill 的规定补齐信息、调用引擎、依据返回事实解�
 
 | 命令 | 用途 |
 |---|---|
+| `setup` | 引导安装 Skill 并检查服务连接 |
+| `version --json` | 查看 CLI 版本与 Node.js 版本 |
 | `capabilities --json` | 能力、输入契约与限制 |
 | `doctor --json` | 连通性与接口版本自检，不发出生资料 |
 | `example --json` | 打印示例出生资料 |
@@ -199,6 +169,8 @@ Agent 会按 Skill 的规定补齐信息、调用引擎、依据返回事实解�
 
 | 文档 | 内容 |
 |---|---|
+| [docs/agent-install.md](docs/agent-install.md) | 交给 AI 助手执行的安装步骤 |
+| [docs/install.md](docs/install.md) | 安装、接入、升级与故障排查 |
 | [docs/api.md](docs/api.md) | 接口契约、字段与错误码 |
 | [docs/demos.md](docs/demos.md) | 三个演示脚本 |
 | [docs/release.md](docs/release.md) | 独立发布与同步说明 |
@@ -213,7 +185,7 @@ Agent 会按 Skill 的规定补齐信息、调用引擎、依据返回事实解�
 - [x] 服务端上线：`https://mingshu.help/api/v1/chart`，接口版本 v1，引擎 `bazi-v3-true-solar`
 - [x] 五语言接入页上线：https://mingshu.help/tools/ai
 - [x] 支持 `npx` 与 `npm install -g github:...`，不需要先发布到 npm
-- [ ] 发布到 npm，提供 `npm install -g mingshu-cli`
+- [x] 引导安装 Skill，支持 Codex、Claude Code 和自定义目录
 - [ ] 打开公开仓库的 CI（需要带 workflow 权限的凭据，步骤见 docs/release.md）
 - [ ] 补充其它 Agent 宿主的实测安装说明
 
@@ -229,7 +201,7 @@ Agent 会按 Skill 的规定补齐信息、调用引擎、依据返回事实解�
 
 `mingshu-bazi` is a dependency-free CLI and Agent Skill for BaZi (Four Pillars) charts. A single call returns the chart facts together with the engine's own determinations - pattern, Day Master strength with its evidence, Useful/Favorable/Unfavorable Elements, seasonal balance, circulation, wealth stars and vault, benefactors, career palace, Shensha, branch relations and risk profile - localized into Simplified Chinese, Taiwan Traditional, Hong Kong Traditional, English or Japanese.
 
-This public repository contains the client only; the deterministic engine and the hosted service live on [mingshu.help](https://mingshu.help). The service is live: the client calls `https://mingshu.help` by default (API v1, engine `bazi-v3-true-solar`) and runs straight from git with `npx --yes github:PanYX/mingshu-bazi capabilities --json`. The package is not published to npm yet. Licensed under [MIT](LICENSE).
+This public repository contains the client only; the deterministic engine and the hosted service live on [mingshu.help](https://mingshu.help). The service is live: the client calls `https://mingshu.help` by default (API v1, engine `bazi-v3-true-solar`) and runs straight from git with `npx --yes github:PanYX/mingshu-bazi capabilities --json`. After installing globally, run `mingshu setup` to select Codex or Claude Code and install the bundled Skill. Use `--dir` for another host. Setup checks connectivity without sending birth data; existing modified Skills are preserved unless `--force` is supplied, which makes a backup first. Installation is directly from GitHub; no npm account is required. For assisted installation, ask your Agent to follow `docs/agent-install.md`. Licensed under [MIT](LICENSE).
 
 ---
 

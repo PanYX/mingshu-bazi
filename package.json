@@ -1,6 +1,6 @@
 {
   "name": "mingshu-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "面向 AI Agent 的八字排盘 CLI：除四柱外，还返回格局、旺衰依据、用神喜忌、调候、财库、神煞与事业宫。",
   "type": "module",
   "license": "MIT",
@@ -21,7 +21,9 @@
     "README.md"
   ],
   "scripts": {
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm test"
   },
   "homepage": "https://mingshu.help/tools/ai",
   "repository": {
@@ -40,5 +42,9 @@
     "cli",
     "skill",
     "agentskill"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

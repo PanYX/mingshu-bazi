@@ -4,7 +4,16 @@ import { parseArgs } from "node:util";
 import { capabilities, CliError, LOCALES, MAX_INPUT_BYTES, validateInput, websiteLinks } from "../src/contract.mjs";
 import { apiOrigin, requestApi } from "../src/client.mjs";
 
+import { checkConnection, setup, SETUP_AGENTS } from "../src/setup.mjs";
+
 const HELP = `Mingshu CLI — Destiny Book / 个人命书
+
+首次使用：mingshu setup，选择 AI 助手，自动安装 Skill 并检查连接。
+mingshu setup --agent codex          Install the Skill for Codex
+mingshu setup --agent claude         Install the Skill for Claude Code
+mingshu setup --dir <skills-dir>     Install into another host's skills directory
+Setup options: --force (back up before replacing), --skip-check (offline), --json
+mingshu version --json               Show the installed CLI version
 
 mingshu capabilities --json           Discover commands and input rules
 mingshu example --json                Print fictional sample birth input
@@ -55,12 +64,14 @@ async function readInput(path) {
 async function main() {
   const { values, positionals } = parseArgs({ options: {
     json: { type: "boolean" }, help: { type: "boolean" }, input: { type: "string" },
+    agent: { type: "string" }, dir: { type: "string" }, force: { type: "boolean" }, "skip-check": { type: "boolean" },
     origin: { type: "string" }, query: { type: "string" }, locale: { type: "string" },
   }, allowPositionals: true, strict: true });
   if (values.help || !positionals.length) { process.stdout.write(HELP); return; }
   if (positionals.length !== 1) throw new CliError("INVALID_COMMAND", "Use one command. Run mingshu --help.");
   const command = positionals[0];
   const optionsByCommand = {
+    setup: ["agent", "dir", "force", "skip-check"], version: [],
     capabilities: [], example: [], skills: [], website: ["locale"],
     validate: ["input"], chart: ["input", "origin"],
     locations: ["query", "locale", "origin"], doctor: ["origin"],
@@ -70,7 +81,17 @@ async function main() {
   const locale = values.locale || "zh-CN";
   if (!LOCALES.includes(locale)) throw new CliError("INVALID_LOCALE", "Unsupported locale. Run mingshu capabilities.");
   let result;
-  if (command === "capabilities") result = { ok: true, ...capabilities() };
+  if (command === "setup") { await setup(values); return; }
+  if (command === "version") {
+    const pkg = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
+    result = { ok: true, name: pkg.name, version: pkg.version, node: process.versions.node };
+  }
+  if (command === "capabilities") {
+    const shared = capabilities();
+    result = { ok: true, ...shared, commands: [...shared.commands, "setup", "version"],
+      setup: { agents: SETUP_AGENTS, customDirectory: "--dir <skills-directory>; creates a mingshu-bazi child directory", interactive: "TTY only; --json requires an explicit target", options: ["agent", "dir", "force", "skip-check"] },
+      effects: { ...shared.effects, setup: "Writes the bundled Skill to the selected local directory; checks API discovery unless --skip-check. --force backs up an existing differing Skill before replacement. Sends no birth data." } };
+  }
   if (command === "example") result = JSON.parse(await readFile(new URL("../examples/birth.json", import.meta.url), "utf8"));
   if (command === "website") result = { ok: true, links: websiteLinks(locale) };
   if (command === "skills") {
@@ -88,9 +109,7 @@ async function main() {
   }
   if (command === "doctor") {
     const origin = apiOrigin(values.origin || process.env.MINGSHU_API_ORIGIN);
-    const remote = await requestApi(origin, "/api/v1/capabilities");
-    if (remote?.apiVersion !== "1" || remote?.ok !== true) throw new CliError("INCOMPATIBLE_API", "The origin does not provide API version 1.");
-    result = { ok: true, origin, node: process.versions.node, apiVersion: remote.apiVersion, note: "Discovery is reachable; chart runtime and place availability are checked on each chart request." };
+    result = await checkConnection(origin);
   }
   if (command === "locations") {
     if (!values.query?.trim() || values.query.length > 120) throw new CliError("QUERY_REQUIRED", "Use --query with a place name, up to 120 characters.");
