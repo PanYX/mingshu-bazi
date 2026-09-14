@@ -19,7 +19,6 @@
 > [!IMPORTANT]
 > **线上可用。** 本仓库是 [个人命书](https://mingshu.help?utm_source=github&utm_medium=readme&utm_campaign=bazi_chart_engine) 的客户端与 Agent Skill。服务端已经上线：默认地址 `https://mingshu.help`，接口版本 `v1`，引擎 `bazi-v3-true-solar`；五种语言的接入页在 https://mingshu.help/tools/ai 。
 >
-> 第一次使用，按下面「怎么用」里的说明操作即可。
 
 ---
 
